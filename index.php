@@ -135,42 +135,42 @@ send($user_id,
 "📊 INVESTMENT PACKAGES
 
 ━━━━━━━━━━━━━━━━━━
-💼 ₦3,000
+💼 3000
 📈 25% Daily
 💵 Daily Profit: ₦750
 💰 Total (60 Days): ₦45,000
 
-💼 ₦5,000
+💼 5000
 📈 25% Daily
 💵 Daily Profit: ₦1,250
 💰 Total (60 Days): ₦75,000
 
-💼 ₦10,000
+💼 10000
 📈 25% Daily
 💵 Daily Profit: ₦2,500
 💰 Total (60 Days): ₦150,000
 
-💼 ₦15,000
+💼 15000
 📈 25% Daily
 💵 Daily Profit: ₦3,750
 💰 Total (60 Days): ₦225,000
 
-💼 ₦20,000
+💼 20000
 📈 25% Daily
 💵 Daily Profit: ₦5,000
 💰 Total (60 Days): ₦300,000
 
-💼 ₦25,000
+💼 25000
 📈 25% Daily
 💵 Daily Profit: ₦6,250
 💰 Total (60 Days): ₦375,000
 
-💼 ₦40,000
+💼 40000
 📈 25% Daily
 💵 Daily Profit: ₦10,000
 💰 Total (60 Days): ₦600,000
 
-💼 ₦50,000
+💼 50000
 📈 25% Daily
 💵 Daily Profit: ₦12,500
 💰 Total (60 Days): ₦750,000
@@ -203,9 +203,11 @@ send($user_id,"Enter amount");
 }
 
 // HANDLE NUMBERS
-elseif (is_numeric($text)){
+$clean = str_replace(["₦", ",", " "], "", $text);
 
-$amount=intval($text);
+if (is_numeric($clean)) {
+
+    $amount = intval($clean);
 
 // DEPOSIT
 if ($users[$user_id]['step']=="deposit"){
